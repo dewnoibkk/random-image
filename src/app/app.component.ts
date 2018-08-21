@@ -7,8 +7,17 @@ import { Component } from '@angular/core';
            })
 export class AppComponent {
   isRandom: boolean;
+  delay: number;
+
+  constructor() {
+    this.delay = 500;
+  }
 
   onRandom() {
     this.isRandom = !this.isRandom;
+  }
+
+  onRandomChanged(random: boolean) {
+    this.isRandom = random;
   }
 }

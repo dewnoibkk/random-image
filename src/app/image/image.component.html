@@ -1,1 +1,6 @@
-<img class="img-fluid" style="max-width: 100%; height: auto;" [src]="image === null ? '' : image.url" alt="">
+<div class="row">
+  <img class="img-responsive"
+       style="margin:0 auto;"
+       (click)="onStart()"
+       [src]="image === null ? '' : image.url">
+</div>

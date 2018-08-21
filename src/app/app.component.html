@@ -3,15 +3,25 @@
 <div class="container-fluid">
   <div class="row">
     <div class="mx-auto mt-2">
-      <button class="btn btn-success" (click)="onRandom()">Start</button>
-    </div>
-  </div>
+      <div class="input-group mb-3">
 
-  <div class="row justify-content-md-center">
-    <div class="col-md-8">
-      <div class="mx-auto mt-2">
-        <app-image [delayMilliSecond]="50" [random]="isRandom"></app-image>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Speed</span>
+        </div>
+        <input type="number" class="form-control text-center" [(ngModel)]="delay">
+
+        <div class="input-group-append">
+          <button (click)="onRandom()"
+                  [ngClass]="isRandom ? 'btn btn-danger' : 'btn btn-success'">
+            {{ isRandom ? 'Stop' : 'Start' }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-image [delayMilliSecond]="delay"
+           [random]="isRandom"
+           (randomChanged)="onRandomChanged($event)">
+</app-image>
